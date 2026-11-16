@@ -1,0 +1,15 @@
+# Ultralytics BoT-SORT configuration customized for CCTV Vehicle Tracking
+tracker_type: botsort # Tracker backend
+track_high_thresh: 0.25 # Threshold for primary high-confidence detections
+track_low_thresh: 0.10 # Threshold for secondary association (occluded vehicles)
+new_track_thresh: 0.25 # Minimum confidence to spawn a new track
+track_buffer: 15 # Retention buffer in frames for lost tracks (MAX_AGE = 15)
+match_thresh: 0.75 # Hungarian IoU matching threshold
+fuse_score: True # Score fusion for robustness in CCTV scenes
+
+# BoT-SORT specifics
+gmc_method: sparseOptFlow # Global motion compensation method
+proximity_thresh: 0.5 # Min IoU threshold for proximity check
+appearance_thresh: 0.8 # Min cosine similarity for ReID features
+with_reid: False # ReID disabled for maximum realtime CCTV frame-rate
+model: auto
